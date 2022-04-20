@@ -15,13 +15,13 @@ namespace RevitAPITExportToNWC
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
             Document doc = commandData.Application.ActiveUIDocument.Document;
-            using (var ts = new Transaction(doc, "export NWC"))
+            /*using (var ts = new Transaction(doc, "export NWC"))
             {
-                ts.Start();
+            ts.Start();*/
                 var options = new NavisworksExportOptions();
                 doc.Export((Environment.GetFolderPath(Environment.SpecialFolder.Desktop)), "export.nwc", options);
-                ts.Commit();
-            }
+                //ts.Commit();
+            //}
             return Result.Succeeded;
 
         }
